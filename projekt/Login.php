@@ -1,3 +1,15 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+	$username = $_POST['username'];
+    $password = md5($_POST['password']);
+
+    require_once('database.php');
+    login($username,$password);
+}
+   
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
