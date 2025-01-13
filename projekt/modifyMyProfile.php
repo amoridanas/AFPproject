@@ -88,3 +88,31 @@ if (doesEmailExist($newEmail, $userId)) {
     header("Location: modifyMyProfile.php");
     exit;
 }
+
+    // Jelszóvalidáció
+    if (!isValidPassword($newPassword)) {
+        $_SESSION['message'] = "A jelszónak legalább 8 karakter hosszúnak kell lennie, tartalmaznia kell kis- és nagybetűt, valamint számot!";
+        header("Location: modifyMyProfile.php"); // visszairányítás ugyanerre az oldalra, hogy a hibaüzenetet lássa
+        exit;
+        }else {
+            $hashedPassword = md5($newPassword);  // Javasolt: password_hash() használata
+    
+            $query = "UPDATE users SET username = '$newUsername', email = '$newEmail', password = '$hashedPassword' WHERE id = $userId";
+            mysqli_query($connection, $query) or die("Hiba a lekérdezésben: $query");
+    
+            $_SESSION['message'] = "A profil sikeresen módosítva!";
+            header("Location: modifyMyProfile.php");
+        }
+    
+        mysqli_close($connection);
+    }
+    
+    // Felhasználó adatainak lekérése az adatbázisból
+    $connection = connect();
+    $query = "SELECT username, email FROM users WHERE id = $userId";
+    $result = mysqli_query($connection, $query) or die("Hiba a lekérdezésben: $query");
+    $user = mysqli_fetch_assoc($result);
+    mysqli_close($connection);
+    ?>
+
+    
