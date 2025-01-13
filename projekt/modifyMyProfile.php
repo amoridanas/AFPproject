@@ -55,3 +55,16 @@ function doesUsernameExist($username, $userId) {
     $connection->close();
     return $exists;
 }
+
+function doesEmailExist($email, $userId) {
+    $connection = connect();
+    $query = "SELECT id FROM users WHERE email = ? AND id != ?";
+    $stmt = $connection->prepare($query);
+    $stmt->bind_param("si", $email, $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $exists = $result->num_rows > 0;
+    $stmt->close();
+    $connection->close();
+    return $exists;
+}
