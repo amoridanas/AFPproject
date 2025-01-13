@@ -18,3 +18,33 @@ if(!isset($_SESSION['id']) || empty($_SESSION['id'])):
 endif;
 ?>
 
+<?php
+if(isset($_SESSION['message']) && !empty($_SESSION['message'])):
+?>
+    <div class="message">
+        <?php echo $_SESSION['message']; ?>
+    </div>
+<?php
+endif;
+?>
+
+<nav class="navigacio">
+    <?php if(!isset($_SESSION['id']) || empty($_SESSION['id'])): ?>
+        <a href="index.php?page=1">Bejelentkezés</a>
+        <a href="index.php?page=2">Regisztráció</a>
+    <?php else: ?>
+        <?php if($_SESSION['permission'] == "admin"): ?>
+            <a href="newsManagement.php">Hírek kezelése</a> 
+        <?php endif; ?>
+        <a href="modifyMyProfile.php">Profilom kezelése</a>
+        <a href="createArticle.php">Cikk létrehozása</a>
+        <a href="logout.php">Kijelentkezés</a>
+    <?php endif; ?>
+</nav>
+
+
+<div class="main">
+
+</div>
+</body>
+</html>
