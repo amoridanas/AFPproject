@@ -18,3 +18,27 @@ if (!isset($_SESSION['id'])) {
 }
 
 $userId = $_SESSION['id'];
+
+function isValidPassword($password) {
+    // Hossz ellenőrzése
+    if (strlen($password) < 8) {
+        return false;
+    }
+
+    // Kisbetű ellenőrzése
+    if (!preg_match('/[a-z]/', $password)) {
+        return false;
+    }
+
+    // Nagybetű ellenőrzése
+    if (!preg_match('/[A-Z]/', $password)) {
+        return false;
+    }
+
+    // Szám ellenőrzése
+    if (!preg_match('/[0-9]/', $password)) {
+        return false;
+    }
+
+    return true;
+}
