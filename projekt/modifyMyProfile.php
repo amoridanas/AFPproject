@@ -68,3 +68,23 @@ function doesEmailExist($email, $userId) {
     $connection->close();
     return $exists;
 }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $connection = connect();
+
+    $newUsername = $_POST['username'];
+    $newEmail = $_POST['email'];
+    $newPassword = $_POST['password'];
+
+    // Felhasználónév és email létezésének ellenőrzése
+if (doesUsernameExist($newUsername, $userId)) {
+    $_SESSION['message'] = "A felhasználónév már létezik!";
+    header("Location: modifyMyProfile.php");
+    exit;
+} 
+
+if (doesEmailExist($newEmail, $userId)) {
+    $_SESSION['message'] = "Az email cím már létezik!";
+    header("Location: modifyMyProfile.php");
+    exit;
+}
