@@ -68,3 +68,28 @@ ALTER TABLE `tananyag`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_hirek_users` (`szerzo`);
 
+--
+-- A tábla indexei `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- A kiírt táblák AUTO_INCREMENT értéke
+--
+
+--
+-- AUTO_INCREMENT a táblához `tananyag`
+--
+ALTER TABLE `tananyag`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT a táblához `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- Megkötések a kiírt táblákhoz
+--
