@@ -23,3 +23,24 @@
                   mysqli_close($connection);
                   header("Location: index.php?page=1&msg=Sikeres regisztráció!");
     }
+    function login($username,$password) {
+        $connection = connect();
+        $query = "SELECT * FROM users WHERE username LIKE '$username' AND password LIKE '$password'";
+        $result = mysqli_query($connection, $query) or die("Hiba a lekérdezésben: $query");
+        $users = mysqli_fetch_row($result);
+        if(!$users) 
+        {
+            header("Location: login.php?page=1&error=Hibás+adatok");
+        }
+        else 
+        {
+            session_start();
+            $_SESSION['id'] = $users[0];
+            $_SESSION['username'] = $users[1];
+            $_SESSION['permission'] = $users[4];
+            header("Location: index2.php");
+        }
+        mysqli_close($connection);
+    }
+
+?>
