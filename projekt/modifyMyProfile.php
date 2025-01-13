@@ -42,3 +42,16 @@ function isValidPassword($password) {
 
     return true;
 }
+
+function doesUsernameExist($username, $userId) {
+    $connection = connect();
+    $query = "SELECT id FROM users WHERE username = ? AND id != ?";
+    $stmt = $connection->prepare($query);
+    $stmt->bind_param("si", $username, $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $exists = $result->num_rows > 0;
+    $stmt->close();
+    $connection->close();
+    return $exists;
+}
