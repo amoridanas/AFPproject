@@ -48,3 +48,23 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `permission` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- A tábla adatainak kiíratása `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `permission`) VALUES
+(5, 'teszt', 'teszt@gmail.com', '39bb37cf36d3b29a9280d8a70a0eed42', 'user'),
+(7, 'proba', 'proba@email.com', 'ce1c1cdc2fac8e1167f22cd4bd88d324', 'admin');
+
+--
+-- Indexek a kiírt táblákhoz
+--
+
+--
+-- A tábla indexei `tananyag`
+--
+ALTER TABLE `tananyag`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_hirek_users` (`szerzo`);
+
