@@ -34,10 +34,10 @@ endif;
         <a href="index.php?page=2">Regisztráció</a>
     <?php else: ?>
         <?php if($_SESSION['permission'] == "admin"): ?>
-            <a href="newsManagement.php">Hírek kezelése</a> 
+            <a href="newsManagement.php">Tananyagok kezelése</a> 
         <?php endif; ?>
         <a href="modifyMyProfile.php">Profilom kezelése</a>
-        <a href="createArticle.php">Cikk létrehozása</a>
+        <a href="createArticle.php">Tananyag létrehozása</a>
         <a href="logout.php">Kijelentkezés</a>
     <?php endif; ?>
 </nav>
