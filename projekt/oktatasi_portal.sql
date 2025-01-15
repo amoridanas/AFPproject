@@ -1,119 +1,112 @@
--- phpMyAdmin SQL Dump
--- version 5.2.0
--- https://www.phpmyadmin.net/
---
--- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Okt 06. 11:03
--- Kiszolgáló verziója: 10.4.27-MariaDB
--- PHP verzió: 8.2.0
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
---
--- Adatbázis: `oktatasi_portal`
---
 
--- --------------------------------------------------------
+CREATE TABLE `kozlemenyek` (
+  `id` int(11) NOT NULL,
+  `tananyag_id` int(11) NOT NULL,
+  `kozlemeny` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Tábla szerkezet ehhez a táblához `tananyag`
---
+
+
+INSERT INTO `kozlemenyek` (`id`, `tananyag_id`, `kozlemeny`, `created_at`) VALUES
+(3, 3, 'hi \\r\\n', '2025-01-14 21:10:25'),
+(4, 3, 'asddas', '2025-01-14 21:23:22');
+
+
 
 CREATE TABLE `tananyag` (
-  `id` int(255) NOT NULL,
+  `id` int(11) NOT NULL,
   `cim` varchar(255) NOT NULL,
   `tartalom` text NOT NULL,
-  `szerzo` int(255) NOT NULL,
+  `szerzo` int(11) NOT NULL,
   `kategoria` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
 
---
--- Tábla szerkezet ehhez a táblához `users`
---
+INSERT INTO `tananyag` (`id`, `cim`, `tartalom`, `szerzo`, `kategoria`) VALUES
+(3, 'sadas', '123', 7, 'asda');
 
 CREATE TABLE `users` (
-  `id` int(255) NOT NULL,
+  `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
+  `vezeteknev` varchar(255) NOT NULL,
+  `keresztnev` varchar(255) NOT NULL,
+  `szuletesi_datum` date NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `permission` varchar(5) NOT NULL
+  `permission` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- A tábla adatainak kiíratása `users`
---
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `permission`) VALUES
-(5, 'teszt', 'teszt@gmail.com', '39bb37cf36d3b29a9280d8a70a0eed42', 'user'),
-(7, 'proba', 'proba@email.com', 'ce1c1cdc2fac8e1167f22cd4bd88d324', 'admin');
+INSERT INTO `users` (`id`, `username`, `vezeteknev`, `keresztnev`, `szuletesi_datum`, `email`, `password`, `permission`) VALUES
+(4, 'Aron', '', '', '0000-00-00', 'aron@email.com', '5c02f67a1da6b9b24c87a914d44c7470', 'admin'),
+(5, 'admin', '', '', '0000-00-00', 'arona@email.com', '5c02f67a1da6b9b24c87a914d44c7470', 'admin'),
+(6, 'user1', 'asd', 'asd', '2132-12-22', 'user1@gmail.com', '6edf26f6e0badff12fca32b16db38bf2', 'admin'),
+(7, 'user2', 'asd', 'asd', '1222-02-03', 'amoridanas5@gmail.com', '6edf26f6e0badff12fca32b16db38bf2', 'admin');
 
---
--- Indexek a kiírt táblákhoz
---
 
---
--- A tábla indexei `tananyag`
---
+
+CREATE TABLE `user_tananyag` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `tananyag_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+INSERT INTO `user_tananyag` (`id`, `user_id`, `tananyag_id`) VALUES
+(4, 7, 3);
+
+
+ALTER TABLE `kozlemenyek`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tananyag_id` (`tananyag_id`);
+
+
 ALTER TABLE `tananyag`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_hirek_users` (`szerzo`);
+  ADD KEY `szerzo` (`szerzo`);
 
---
--- A tábla indexei `users`
---
+
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
---
--- A kiírt táblák AUTO_INCREMENT értéke
---
 
---
--- AUTO_INCREMENT a táblához `tananyag`
---
+ALTER TABLE `user_tananyag`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `tananyag_id` (`tananyag_id`);
+
+
+ALTER TABLE `kozlemenyek`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+
 ALTER TABLE `tananyag`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
---
--- AUTO_INCREMENT a táblához `users`
---
+
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
---
--- Megkötések a kiírt táblákhoz
---
+ALTER TABLE `user_tananyag`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
---
--- Megkötések a táblához `tananyag`
---
+ALTER TABLE `kozlemenyek`
+  ADD CONSTRAINT `kozlemenyek_ibfk_1` FOREIGN KEY (`tananyag_id`) REFERENCES `tananyag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+
 ALTER TABLE `tananyag`
-  ADD CONSTRAINT `FK_tananyag_users` FOREIGN KEY (`szerzo`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `tananyag_ibfk_1` FOREIGN KEY (`szerzo`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+ALTER TABLE `user_tananyag`
+  ADD CONSTRAINT `user_tananyag_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_tananyag_ibfk_2` FOREIGN KEY (`tananyag_id`) REFERENCES `tananyag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
-
---
---kommentek
---
-CREATE TABLE comments (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    article_id INT,
-    user_id INT,
-    comment_text TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
-
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
