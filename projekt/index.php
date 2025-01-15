@@ -39,5 +39,51 @@
         <h1>Oktatási Portál</h1>
     </header>
 
-    <!-- Navbar -->
     <?php include('navbar.php'); ?>
+      <section class="container my-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2>Üdvözlünk az Oktatási Portálon!</h2>
+                <p class="lead">Fedezd fel a tananyagokat, regisztrálj kurzusokra, és fejlődj folyamatosan!</p>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Tananyagok</h5>
+                        <p class="card-text">Böngészd az elérhető tananyagokat!</p>
+                        <a href="all_courses.php" class="btn btn-primary">Megtekintés</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Kurzusaim</h5>
+                        <p class="card-text">Kövesd nyomon jelenlegi tanulmányaidat!</p>
+                        <a href="my_courses.php" class="btn btn-primary">Megnézem</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Tippek</h5>
+                        <p class="card-text">Hogyan tanulj hatékonyabban?</p>
+                        <a href="tipps.php" class="btn btn-primary">Itt a válasz</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 Oktatási Portál. Minden jog fenntartva.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
