@@ -1,5 +1,6 @@
 1. Követelmény összefoglalása
 Az oktatási platform célja, hogy digitális környezetben támogassa az oktatási folyamatokat, megkönnyítve az oktatók és a tanulók közötti információcserét és hozzáférést a tananyagokhoz. Az alkalmazás egyszerű kezelhetőséget biztosít, miközben rugalmasan kezeli a felhasználói és adminisztratív igényeket.
+
 2. Jelenlegi helyzet leírása
 A jelenlegi oktatási folyamatok gyakran manuálisak vagy elavult eszközöket használnak, amelyek időigényesek és kevésbé hatékonyak. Egy webalapú oktatási platform bevezetése:
    - Gyors hozzáférést biztosít a tananyagokhoz.
@@ -33,6 +34,23 @@ Bejelentkezés a platformra
 Profil módosítása
 Kurzusokhoz kapcsolódó tananyagok böngészése és tanulása.
 Tippek és trükkök használata
+
+5.követelmény lista
+kidolgozás alatt
+
+6. Funkcionális specifikációk és egyéb szempontok
+Technológiai alapok: A webalkalmazás modern keretrendszereket használjon, mint például php, MySQL.
+Felhasználói élmény: Letisztult és könnyen navigálható felület html használatával.
+Biztonság: Az adatok védelme érdekében az alkalmazás HTTPS-t használjon
+Bővíthetőség: A rendszer moduláris felépítésű legyen, hogy a jövőben új funkciók könnyen hozzáadhatók legyenek (pl. tananyag feltöltése PDF-ben).
+
+
+
+
+
+
+
+
 
 
 
