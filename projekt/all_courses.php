@@ -73,4 +73,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['tananyag_id'], $_SESS
 <body>
     <?php include('navbar.php'); ?>
 
-    
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Összes Tananyag</h1>
+        <?php if (isset($message)): ?>
+            <div class="alert alert-info text-center"> <?php echo htmlspecialchars($message); ?> </div>
+        <?php endif; ?>
+        <?php if ($result && $result->num_rows > 0): ?>
+            <div class="row g-4">
+                <?php while ($row = $result->fetch_assoc()): ?>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-primary fw-bold"><?php echo htmlspecialchars($row['cim']); ?></h5>
+                                <p class="card-text text-muted">Kategória: <?php echo htmlspecialchars($row['kategoria']); ?>
+                                </p>
+                                <p class="card-text text-muted">Szerző: <?php echo htmlspecialchars($row['szerzo']); ?></p>
+                                <p class="card-text">Tartalom:
+                                    <?php echo nl2br(htmlspecialchars(mb_strimwidth($row['tartalom'], 0, 100, '...'))); ?></p>
+                                <div class="mt-auto">
+                                    <?php if (isset($_SESSION['id'])): ?>
+                                        <form method="post">
+                                            <input type="hidden" name="tananyag_id" value="<?php echo $row['id']; ?>">
+                                            <button type="submit" class="btn btn-primary w-100">Jelentkezés</button>
+                                        </form>
+                                    <?php else: ?>
+                                        <p class="text-muted text-center">Jelentkezéshez jelentkezz be.</p>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endwhile; ?>
+            </div>
+        <?php else: ?>
+            <p class="text-center">Nincs elérhető tananyag.</p>
+        <?php endif; ?>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
+<?php
+$connection->close();
+?>
