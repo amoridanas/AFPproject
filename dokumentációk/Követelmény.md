@@ -13,5 +13,28 @@ Tanulók kurzusokra történő beiratkoztatása különböző eszközökkel (pl.
 Tanulói folyamatok:
 Tananyagokhoz való hozzáférés több csatornán keresztül.
 Információk keresése a kurzusokhoz kapcsolódó tananyagokról manuális módon.
+3. Jelenlegi üzleti folyamatok modellje
+Oktatói feladatok:
+Tananyagok manuális kezelése (pl. papíralapú vagy fájlmegosztáson keresztül).
+Tanulók kurzusokra történő beiratkoztatása különböző eszközökkel (pl. e-mail, táblázatok).
+Tanulói folyamatok:
+Tananyagokhoz való hozzáférés több csatornán keresztül.
+Információk keresése a kurzusokhoz kapcsolódó tananyagokról manuális módon.
+
+4. Igényelt üzleti feladatok modellje
+Az új platform bevezetése során az alábbi folyamatokat kívánjuk megvalósítani:
+Oktatók számára:
+Tananyagok kurzusonkénti létrehozása és kezelése.
+Tanulók kurzusokra való feliratkoztatása.
+Kurzus hallgatókkal való kapcsolattartás
+Tanulók számára:
+Regisztráció
+Bejelentkezés a platformra
+Profil módosítása
+Kurzusokhoz kapcsolódó tananyagok böngészése és tanulása.
+Tippek és trükkök használata
+
+
+
 
 
