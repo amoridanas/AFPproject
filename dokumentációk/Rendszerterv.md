@@ -8,3 +8,21 @@ Product owner: Tajti Tibor
 Üzleti szereplő: Tajti Tibor
 
 
+2.1 Projekt-szerepkörök, felelősségek
+Frontend: Teleki Áron, Szobonya Norbert
+Backend: Teleki Áron, Szobonya Norbert
+Tesztelés: Teleki Áron, Szobonya Norbert
+
+2.2 Ütemterv
+egyeztetés alatt
+
+2.3 Mérföldkövek
+Projekt megtervezése
+Prototípus átadása
+Kész projekt átadása
+
+3.Követelmények
+Reszponzív, dinamikus weboldal
+Felhasználó kezelő rendszer
+Backend része PHP legyen
+
