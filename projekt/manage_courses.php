@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['id']) || empty($_SESSION['id']) || $_SESSION['permission'] !== 'admin') {
-    header("Location: index.php?page=1"); // Irányítás a bejelentkezési oldalra
+    header("Location: index.php?page=1");
     exit();
 }
 
