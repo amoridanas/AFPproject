@@ -76,3 +76,74 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_tananyag_id'])
     </style>
 </head>
 
+<body>
+    <?php include('navbar.php'); ?>
+
+    <div class="container my-5">
+        <h1 class="text-center">Kurzusok Kezelése</h1>
+
+        <?php if (isset($message)): ?>
+            <div class="alert alert-info text-center"> <?php echo htmlspecialchars($message); ?> </div>
+        <?php endif; ?>
+
+        <?php if ($result && $result->num_rows > 0): ?>
+            <div class="row">
+                <?php while ($row = $result->fetch_assoc()): ?>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo htmlspecialchars($row['cim']); ?></h5>
+                                <p class="card-text">Kategória: <?php echo htmlspecialchars($row['kategoria']); ?></p>
+                                <p class="card-text">Szerző: <?php echo htmlspecialchars($row['szerzo']); ?></p>
+
+                                <h6 class="mt-3">Jelentkezett felhasználók:</h6>
+                                <ul>
+                                    <?php
+                                    $tananyag_id = $row['tananyag_id'];
+                                    $users_sql = "SELECT users.username, users.email FROM user_tananyag
+                                                  JOIN users ON user_tananyag.user_id = users.id
+                                                  WHERE user_tananyag.tananyag_id = $tananyag_id";
+                                    $users_result = $connection->query($users_sql);
+
+                                    if ($users_result && $users_result->num_rows > 0):
+                                        while ($user = $users_result->fetch_assoc()): ?>
+                                            <li><?php echo htmlspecialchars($user['username']) . " (" . htmlspecialchars($user['email']) . ")"; ?>
+                                            </li>
+                                        <?php endwhile; ?>
+                                    <?php else: ?>
+                                        <li>Nincs jelentkező.</li>
+                                    <?php endif; ?>
+                                </ul>
+
+                                <form method="POST" class="mt-3">
+                                    <input type="hidden" name="tananyag_id" value="<?php echo $tananyag_id; ?>">
+                                    <div class="mb-3">
+                                        <label for="kozlemeny" class="form-label">Közlemény küldése:</label>
+                                        <textarea class="form-control" id="kozlemeny" name="kozlemeny" rows="3"
+                                            required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Közlemény Küldése</button>
+                                </form>
+
+                                <form method="POST" class="mt-3">
+                                    <input type="hidden" name="delete_tananyag_id" value="<?php echo $tananyag_id; ?>">
+                                    <button type="submit" class="btn btn-danger">Kurzus Törlése</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                <?php endwhile; ?>
+            </div>
+        <?php else: ?>
+            <p class="text-center">Nincs elérhető kurzus.</p>
+        <?php endif; ?>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
+<?php
+$connection->close();
+?>
