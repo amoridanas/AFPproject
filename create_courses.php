@@ -54,3 +54,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <?php include('navbar.php'); ?>
+    
+    <div class="container my-5">
+        <div class="form-section">
+            <h1 class="text-center">Kurzus Létrehozása</h1>
+
+            <?php if (isset($message)): ?>
+                <div class="alert alert-info text-center"> <?php echo htmlspecialchars($message); ?> </div>
+            <?php endif; ?>
+
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="cim" class="form-label">Kurzus Címe</label>
+                    <input type="text" class="form-control" id="cim" name="cim" required>
+                </div>
+                <div class="mb-3">
+                    <label for="kategoria" class="form-label">Kategória</label>
+                    <input type="text" class="form-control" id="kategoria" name="kategoria" required>
+                </div>
+                <div class="mb-3">
+                    <label for="tartalom" class="form-label">Tartalom</label>
+                    <textarea class="form-control" id="tartalom" name="tartalom" rows="5" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="vezeteknev" class="form-label">Vezetéknév</label>
+                    <input type="text" class="form-control" id="vezeteknev" name="vezeteknev" required>
+                </div>
+                <div class="mb-3">
+                    <label for="keresztnev" class="form-label">Keresztnév</label>
+                    <input type="text" class="form-control" id="keresztnev" name="keresztnev" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Létrehozás</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
+<?php
+$connection->close();
+?>
