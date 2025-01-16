@@ -10,3 +10,31 @@ A jelenlegi folyamatok manuálisak, az oktatók és tanulók különböző platf
 Az igényelt rendszer egyetlen platformon biztosítja a kurzusok létrehozását, tananyagok megosztását és a kommunikációt. A tanulók és oktatók egyszerűen kezelhetik a kurzusokkal kapcsolatos teendőiket, így a folyamatok gyorsabbá és hatékonyabbá válnak.
 
 
+5. Követelménylista
+ID
+Követelmény
+Prioritás
+K1
+Felhasználói regisztráció és bejelentkezés
+Magas
+K2
+Kurzusok létrehozása oktatók által
+Magas
+K3
+Tananyagok feltöltése oktatók által
+Magas
+K4
+Tanulók kurzusokra való feliratkozása
+Magas
+K5
+Közlemények megjelenítése kurzusokhoz
+Közepes
+K6
+Információs oldalak elérhetővé tétele
+Alacsony
+K7
+Felhasználói adatok kezelése
+Közepes
+K8
+Kijelentkezés funkció
+Magas
