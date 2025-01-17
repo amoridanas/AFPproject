@@ -38,5 +38,22 @@
 | JN_t011               | Regisztráció jelszó erősségének ellenőrzése:                                                   | 8 karakternél kisebb jelszót vagy nagybetűt/számot nem tartalmazó jelszót a rendszer nem fogad. | Az elvárásoknak megfelelően zajlott le.                         | Nem észleltem hibára utaló jeleket. |
 | JN_t012               | Sikeres bejelentkezés:                                                                         | Sikeres bejelentkezés után a felhasználó a főoldalra kerül, ahol elérheti a tananyagokat.      | Az elvárásoknak megfelelően zajlott le.                         | Nem észleltem hibára utaló jeleket. |
 
+---
+
+# Tananyagok létrehozásának tesztelése
+
+**Tesztelő:** Teleki Áron  
+**Tesztelés dátuma:** 2025.01.15  
+
+| Demonstráció azonosító | Szimulációs példa                                                                                             | Referenciaeredmény                                                                                                                                  | Valós eredmény                                                   | Visszajelzések                                           |
+|------------------------|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|----------------------------------------------------------|
+| JN_t013               | Tananyag létrehozása:                                                                                        | A bejelentkezett felhasználó bármilyen jogosultságtól függetlenül képes tananyagot létrehozni.                                                      | Az elvárásoknak megfelelően zajlott le.                         | Nem észleltem olyan jeleket, amelyek hibára utalnának.   |
+| JN_t014               | Üres inputtal való tananyag létrehozás:                                                                     | A rendszer kötelezi a felhasználót, hogy töltse ki az input mezőket, különben nem lehet tananyagot létrehozni.                                       | Az elvárásoknak megfelelően zajlott le.                         | Nem észleltem olyan jeleket, amelyek hibára utalnának.   |
+| JN_t015               | Tananyag mentése az adatbázisban:                                                                             | Sikeres létrehozás esetén az adatbázisban elmentődik a felhasználó által létrehozott tananyag.                                                       | Az elvárásoknak megfelelően zajlott le.                         | Nem észleltem olyan jeleket, amelyek hibára utalnának.   |
+| JN_t016               | Sikeres létrehozás üzenet:                                                                                   | A felhasználó értesül a sikeres tananyag létrehozásáról.                                                                                             | Az elvárásoknak megfelelően zajlott le.                         | Nem észleltem olyan jeleket, amelyek hibára utalnának.   |
+
+| Demonstráció azonosító | Szimulációs példa                                                                                             | Referenciaeredmény                                                                                                                                  | Valós eredmény                                                   | Visszajelzések                                           |
+|------------------------|-------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
