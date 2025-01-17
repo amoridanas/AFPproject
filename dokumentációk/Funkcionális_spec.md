@@ -39,8 +39,6 @@ K8
 Kijelentkezés funkció
 Magas
 
----
-
 ## 6. Használati esetek
 
 ### 6.1 Felhasználó
