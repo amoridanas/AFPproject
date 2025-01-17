@@ -42,3 +42,22 @@
 | Teszt kód | Teszteset                | Elvárás                                                                                  | Eredmény                               | Konklúzió           |
 |-----------|--------------------------|-----------------------------------------------------------------------------------------|----------------------------------------|---------------------|
 | KA_13     | "Vissza" gombok kezelése | A tananyag módosításakor vagy kezelésekor lehetőség van visszalépni egy lépéssel.        | Az elvárásoknak megfelelően zajlott le. | Nem találtam hibát  |
+---
+
+## Tananyagok megjelenítése, létrehozása, módosítása és törlése
+
+**Tesztelő**: Szobonya Norbert  
+**Tesztelés dátuma**: 2025.01.16.
+
+| Teszt kód | Teszteset                                     | Elvárás                                                                                     | Eredmény                               | Konklúzió           |
+|-----------|----------------------------------------------|--------------------------------------------------------------------------------------------|----------------------------------------|---------------------|
+| KA_14     | A megfelelő tananyagok megjelenítése         | A főoldalon a különböző kategóriákra való kattintáskor a megfelelő kategóriába tartozó tananyagok jelennek meg. | Elvárásoknak megfelel                  | Nincs hiba          |
+| KA_15     | Az összes tananyag megjelenítése             | Az "összes tananyag" pontra kattintva megjelenik az összes tananyag kategóriától függetlenül. | Elvárásoknak megfelel                  | Nincs hiba          |
+| KA_16     | Tananyag létrehozása                         | A bejelentkezett felhasználó jogosultságtól függetlenül tud tananyagot létrehozni.          | Nem felel meg az elvárásoknak          | Javítás szükséges   |
+| KA_17     | Üres inputtal való tananyag létrehozás       | A rendszer kötelezi a felhasználót, hogy írjon adatokat az input mezőkbe, ennek hiányában tananyagot létrehozni nem tud. | Elvárásnak megfelel                    | Nincs hiba          |
+| KA_18     | Tananyag mentése                             | Létrehozás után eltárolódik a tananyag az adatbázisban.                                     | Elvárásnak megfelel                    | Nincs hiba          |
+| KA_19     | Törlés és módosítás jogosultságtól függően   | Csak admin felhasználói jogosultsággal rendelkező felhasználók tudnak törölni vagy módosítani. | Elvárásnak megfelel                    | Nincs hiba          |
+| KA_20     | Tananyag törlése az oldalról és adatbázisból | Törlés esetén az adatbázisból és az oldalról is törlődik a tananyag.                        | Elvárásoknak megfelel                  | Nincs hiba          |
+| KA_21     | Üzenetek megjelenítése a változásokról       | A törléssel és módosítással kapcsolatos üzenetek jelezve vannak a felhasználó számára.      | Elvárásoknak megfelel                  | Nincs hiba          |
+| KA_22     | Tananyag módosítása az oldalon és adatbázisban | Módosításkor az adatbázisban és a kliens oldalon is frissülnek az adatok.                  | Elvárásoknak megfelel                  | Nincs hiba          |
+| KA_23     | Módosítás hibakezelése                       | Módosításkor az adatbázisban és a kliens oldalon is frissülnek az adatok.                  | Elvárásoknak megfelel                  | Nincs hiba          |
