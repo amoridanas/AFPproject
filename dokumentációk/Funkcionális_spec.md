@@ -38,3 +38,70 @@ Közepes
 K8
 Kijelentkezés funkció
 Magas
+
+---
+
+## 6. Használati esetek
+
+### 6.1 Felhasználó
+- Regisztráció
+- Bejelentkezés
+- Kurzusokra való feliratkozás
+- Tananyagok megtekintése
+- Közlemények olvasása
+- Kijelentkezés
+
+### 6.2 Admin (oktató)
+- Kurzusok létrehozása
+- Tananyagok feltöltése
+- Közlemények közzététele
+- Kurzusok és tananyagok kezelése
+
+---
+
+## 7. Megfeleltetés
+
+| Lefedett használati eset | Követelmény                  | Követelmény azonosító(k) |
+|--------------------------|-----------------------------|--------------------------|
+| Regisztráció             | Felhasználói regisztráció   | K1                       |
+| Bejelentkezés            | Bejelentkezés funkció       | K1                       |
+| Kurzusok kezelése        | Kurzusok létrehozása        | K2                       |
+| Tananyagok feltöltése    | Tananyagok kezelése         | K3                       |
+| Kijelentkezés            | Kijelentkezés funkció       | K8                       |
+
+---
+
+## 8. Forgatókönyvek
+
+### Bejelentkezés
+A felhasználó megadja az email címét és jelszavát, majd a "Bejelentkezés" gombra kattint. Ha az adatok helyesek, a rendszer belépteti őt a főoldalra.
+
+### Regisztráció
+A felhasználó kitölti a regisztrációs űrlapot, megadja az email címét, jelszavát és kiválasztja a szerepkört (oktató vagy tanuló). Sikeres regisztráció után a rendszer visszairányítja a bejelentkezési oldalra.
+
+### Kezdőlap
+Bejelentkezés után a felhasználó a főoldalon éri el a menüsort, ahol a funkciók elérhetők (kurzusok, tananyagok, információs oldalak).
+
+### Felhasználói adatok kezelése
+A felhasználó megtekintheti és frissítheti a saját profilját.
+
+---
+
+## 9. Funkciók követelmény megfeleltetése
+
+| ID  | Követelmény                              | Funkció                          |
+|-----|------------------------------------------|-----------------------------------|
+| K1  | Felhasználói regisztráció és bejelentkezés | Regisztráció és bejelentkezés    |
+| K2  | Kurzusok létrehozása oktatók által       | Kurzusok kezelése                |
+| K3  | Tananyagok feltöltése oktatók által      | Tananyagok feltöltése            |
+| K4  | Tanulók kurzusokra való feliratkozása    | Kurzusokra való feliratkozás     |
+| K5  | Közlemények megjelenítése kurzusokhoz    | Közlemények kezelése             |
+| K6  | Információs oldalak elérhetővé tétele    | Információs oldalak              |
+| K8  | Kijelentkezés funkció                   | Kijelentkezés                    |
+
+---
+
+## 10. Fogalomszótár
+
+- **Kurzus**: Az oktató által létrehozott oktatási egység, amelyhez tananyagok és közlemények tartoznak.
+- **Tananyag**: Az oktatás során felhasznált dokumentumok, prezentációk vagy egyéb anyagok, amelyeket az oktató oszt meg a tanulókkal.
