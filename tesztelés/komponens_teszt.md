@@ -52,8 +52,7 @@
 | JN_t015               | Tananyag mentése az adatbázisban:                                                                             | Sikeres létrehozás esetén az adatbázisban elmentődik a felhasználó által létrehozott tananyag.                                                       | Az elvárásoknak megfelelően zajlott le.                         | Nem észleltem olyan jeleket, amelyek hibára utalnának.   |
 | JN_t016               | Sikeres létrehozás üzenet:                                                                                   | A felhasználó értesül a sikeres tananyag létrehozásáról.                                                                                             | Az elvárásoknak megfelelően zajlott le.                         | Nem észleltem olyan jeleket, amelyek hibára utalnának.   |
 
-| Demonstráció azonosító | Szimulációs példa                                                                                             | Referenciaeredmény                                                                                                                                  | Valós eredmény                                                   | Visszajelzések                                           |
-|------------------------|-------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                                                                              
 
 
 
